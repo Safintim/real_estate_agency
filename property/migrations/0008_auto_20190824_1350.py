@@ -12,7 +12,7 @@ def normalize_phonenumbers(apps, schema_editor):
         if phonenumbers.is_valid_number(phonenumber):
             flat.owners_phone_pure = phonenumbers.format_number(phonenumber, phonenumbers.PhoneNumberFormat.E164)
         else:
-            flat.owners_phone_pure = '+71111111111'
+            flat.owners_phone_pure = '+79999999999'
         flat.save()
 
 
