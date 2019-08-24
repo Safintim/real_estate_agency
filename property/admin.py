@@ -5,8 +5,8 @@ from .models import Flat, Complaint
 
 @admin.register(Flat)
 class FlatAdmin(admin.ModelAdmin):
-    list_display = ['town', 'address', 'price', 'new_building', 'construction_year', ]
-    search_fields = ['town', 'town_district', 'address', 'owner', ]
+    list_display = ['town', 'address', 'price', 'new_building', 'construction_year', 'owners_phone_pure', ]
+    search_fields = ['town', 'town_district', 'address', 'owner', 'owners_phone_pure', ]
     readonly_fields = ['created_at', ]
     list_editable = ['new_building', ]
     list_filter = ['new_building', 'rooms_number', 'has_balcony', ]
