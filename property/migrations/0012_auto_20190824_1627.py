@@ -8,13 +8,13 @@ def flat_owners_to_owner(apps, schema_editor):
     Owner = apps.get_model('property', 'Owner')
 
     for flat in Flat.objects.all():
-        owner_obj = Owner.objects.create(
+        owner_obj, created = Owner.objects.get_or_create(
             name=flat.owner,
             owners_phonenumber=flat.owners_phonenumber,
             owners_phone_pure=flat.owners_phone_pure,
         )
-        owner_obj.flats.add(flat)
-        flat.owners.add(owner_obj)
+        owner_obj.flats.set(flat)
+        flat.owners.set(owner_obj)
         flat.save()
         owner_obj.save()
 
